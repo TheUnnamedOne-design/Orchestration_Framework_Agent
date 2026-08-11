@@ -33,7 +33,9 @@ The system becomes significantly more powerful by connecting to the user's digit
 
 At its full potential, the project becomes a **Personal Agentic Operating System** built around the loop **Goal → Plan → Execute → Observe → Verify → Remember → Follow Up**. It does not merely answer questions; it manages long-running objectives and performs useful work on the user's behalf. The architecture will progressively introduce persistent memory, event-driven systems, scheduled jobs, queues, workers, pub/sub, real-time communication, workflow orchestration, RAG, AI agents, tool calling, MCP, browser/computer interaction, observability, security, human-in-the-loop approvals and distributed-system concepts. The project therefore serves both as a genuinely useful personal assistant and as a deep engineering platform that can evolve from a simple MVP into a production-grade agentic system.
 
-------------------------------------------------------------------------------------------------------------------------## (IDEA_004) Project:Project Memory — AI Engineering Intelligence & Institutional Memory
+------------------------------------------------------------------------------------------------------------------------
+
+## (IDEA_004) Project:Project Memory — AI Engineering Intelligence & Institutional Memory
 
 High-Level Idea
 
