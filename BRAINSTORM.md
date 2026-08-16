@@ -44,3 +44,43 @@ Project Memory is an AI-powered platform that creates a continuously evolving me
 Project Memory also acts as an active engineering companion during development. A local development agent can monitor activity within selected projects—such as code changes, Git operations, tests, builds, and development sessions—and compare the developer's current work against the project's architecture, goals, historical decisions, and previous failures. It can warn when a developer is unknowingly recreating a previously failed approach, violating an architectural decision, missing important tests, drifting from the intended feature, or making changes that could affect other components. When a developer wants to implement a feature, Project Memory performs change-impact analysis, identifies affected code, APIs, databases, tests and documentation, retrieves relevant historical context, and generates an implementation plan that can be handed to coding agents such as Codex, Claude Code, or other agentic development tools.
 
 Over time, the system becomes a living institutional memory for software: every important change updates the project's knowledge, successful and failed approaches are preserved, architectural decisions remain discoverable, documentation can be checked against reality, and future developers or AI agents can understand the system without rediscovering years of knowledge themselves.
+
+------------------------------------------------------------------------------------------------------------------------
+
+## (IDEA-005) AI Production Incident Intelligence Platform
+
+### High-Level Idea
+
+**AI Production Incident Intelligence** is a platform that acts as an intelligent first-responder during production incidents. When an alert fires (from PagerDuty, Grafana, Prometheus, or CloudWatch), the system automatically pulls all relevant context — logs, metrics, distributed traces, recent deployments, and recent Git commits — and runs AI-driven cross-signal correlation to produce a ranked list of root-cause hypotheses with supporting evidence, all within 60 seconds.
+
+The platform generates a tailored remediation runbook for the most likely cause and notifies the on-call engineer via Slack with a structured incident brief. It can also execute safe automated actions (restart a pod, scale a service, flush a cache) immediately, and request explicit human approval for potentially destructive operations (rollback a deployment, modify database configuration) through a human-in-the-loop approval gate.
+
+Once the incident is resolved, the system automatically drafts a structured post-mortem from the collected timeline, root cause, remediation steps, and engineer notes — eliminating the low-quality, memory-based post-mortem written days later under time pressure. Every resolved incident enriches a searchable knowledge base, so future incidents with similar signatures are diagnosed progressively faster through RAG-powered retrieval.
+
+The system compresses Mean Time To Resolution (MTTR) from 30–90 minutes of manual investigation to under 60 seconds of automated correlation — a measurable, enterprise-valuable outcome.
+
+------------------------------------------------------------------------------------------------------------------------
+
+## (IDEA-006) LLMOps Gateway — AI Observability, Routing & Cost Intelligence Platform
+
+### High-Level Idea
+
+**LLMOps Gateway** is a self-hosted, open-core proxy that sits between application code and LLM providers (OpenAI, Anthropic, Google, Ollama). The application changes a single base URL; the gateway adds intelligence to every LLM call without requiring any other code changes.
+
+The platform provides intelligent model routing (directing requests to the cheapest model that meets quality requirements), semantic response caching (caching by meaning rather than exact string match, reducing costs by 30–60% in production workloads), and full observability over every prompt and response — with cost, latency, token counts, and quality scores all logged and dashboarded. A prompt management system versions prompts, enables A/B testing between variants, and allows instant rollback of bad prompts without code deployments. A guardrails engine detects PII leakage, prompt injection, and off-topic responses before they reach users or LLM providers. Budget enforcement prevents cost surprises by enforcing configurable spending limits per organization, project, feature, and user.
+
+The self-hosted positioning directly targets the real gap in the market: Helicone, LangSmith, and PortKey are cloud-only SaaS. Enterprises with HIPAA, SOC 2, or GDPR data residency requirements cannot send their prompts and responses to these services. A privacy-first, self-hosted alternative with full feature parity fills that gap and creates a durable infrastructure position where other teams' AI products run on top of this platform.
+
+------------------------------------------------------------------------------------------------------------------------
+
+## (IDEA-007) Multi-Agent Deep Research & Knowledge Synthesis Engine
+
+### High-Level Idea
+
+**Multi-Agent Deep Research Engine** is a collaborative multi-agent system that accepts a complex research question and deploys a coordinated team of specialized AI agents to produce a structured, cited, expert-level research document — automatically and within minutes rather than hours.
+
+Unlike fast search-and-summarize tools (Perplexity, ChatGPT search), this system performs genuine multi-source, multi-stage research. A **Navigator Agent** decomposes the question into sub-questions and dispatches specialized agents in parallel: Web Research Agents scrape and analyze articles and blog posts; a Paper Analysis Agent retrieves and processes academic papers from arXiv and Semantic Scholar; a Code Analysis Agent finds real-world implementations on GitHub; a Fact-Check Agent cross-validates conflicting claims across sources; and a Critic Agent identifies gaps and missing perspectives, triggering re-dispatch of agents until coverage is satisfactory. A Synthesis Agent then combines all findings into a structured document with sections, citations, confidence levels per claim (established / supported / contested / opinion), and a clear conclusion.
+
+The output is a **living document**: users can ask follow-up questions to extend specific sections, and research sessions can be scheduled to refresh automatically when new information becomes available. The system naturally evolves into an organizational knowledge base, where past research sessions become retrievable context for future queries on related topics.
+
+The orchestration architecture — with parallel agent execution, agent-to-agent communication, conflict resolution, and quality verification loops — teaches the most frontier-adjacent skills in applied AI engineering: production multi-agent systems with real coordination logic.
